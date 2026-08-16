@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>1gamingsloth</title>
+    <meta name="description" content="1gamingsloth's personal website and stuff">
+
+    <style>
+        :root {
+            --bg: #8ee7ff;
+            --text: #082b5c;
+            --link: #005eff;
+
+	          /* "glassmorphism is kinda cool", 1gamingsloth 2026 */
+            --surface: rgba(255, 255, 255, .55);
+            --border: rgba(255, 255, 255, .9);
+
+            --cyan: #00d9ff;
+            --sky: #4db8ff;
+            --green: #8cff6b;
+
+            --shadow:
+                0 8px 25px rgba(0, 90, 200, .25),
+                inset 0 2px 8px rgba(255, 255, 255, .9);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            min-height: 100%;
+
+            background:
+                radial-gradient(circle at 30% 10%, white 0, transparent 20%),
+                radial-gradient(circle at 80% 30%, var(--cyan), transparent 25%),
+                linear-gradient(
+                    180deg,
+                    var(--sky),
+                    var(--bg) 45%,
+                    var(--green)
+                );
+
+            color: var(--text);
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, sans-serif;
+            line-height: 1.5;
+        }
+
+        a {
+            color: var(--link);
+        }
+
+        .index {
+            width: min(720px, calc(100% - 32px));
+            margin: 70px auto;
+        }
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .avatar {
+            width: 56px;
+            height: 56px;
+
+            display: grid;
+            place-items: center;
+
+            font-size: 27px;
+
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(8px);
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            margin: 2px 0 0;
+            opacity: .65;
+        }
+
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        nav a,
+        .links a {
+            padding: 5px 10px;
+
+            color: var(--link);
+            text-decoration: none;
+
+            background: rgba(255, 255, 255, .3);
+            border: 1px solid rgba(255, 255, 255, .7);
+            border-radius: 10px;
+        }
+        nav a:hover,
+        .links a:hover,
+        .project:hover {
+            background: rgba(255, 255, 255, .7);
+        }
+        .card {
+            padding: 18px;
+            margin-bottom: 14px;
+
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+
+        .card h2 {
+            margin: 0 0 10px;
+            font-size: 18px;
+        }
+        .card p {
+            margin: 8px 0;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .project {
+            display: flex;
+            flex-direction: column;
+
+            padding: 11px;
+
+            color: var(--text);
+            text-decoration: none;
+
+            background: rgba(255, 255, 255, .3);
+            border: 1px solid rgba(255, 255, 255, .6);
+            border-radius: 10px;
+        }
+
+        .project strong {
+            color: var(--link);
+        }
+
+        .project small {
+            opacity: .6;
+        }
+
+        /* links */
+
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        footer {
+            margin-top: 25px;
+            font-size: 13px;
+            opacity: .55;
+        }
+
+	/* Fixes for an old project using this style.css */
+	.thread.keyboard-selected {
+	    outline: 2px solid #4a90e2;
+	    background-color: rgba(74, 144, 226, 0.15);
+	}
+	input[type="checkbox"] {
+	    -webkit-appearance: none;
+	    appearance: none;
+	    width: 20px;
+	    height: 20px;
+	    background: var(--surface);
+	    border: 1px solid var(--border);
+	    border-radius: 6px;
+	    cursor: pointer;
+	    vertical-align: -3px !important;
+	    position: relative;
+	    transition: background-color 0.25s, transform 0.25s;
+	    box-shadow: var(--shadow);
+	    backdrop-filter: blur(5px);
+	    display: inline-block;
+	    flex-shrink: 0;
+	}
+	
+	input[type="checkbox"]:hover {
+	    background: rgba(255, 255, 255, 0.8);
+	    transform: scale(1.05);
+	}
+	
+	input[type="checkbox"]:checked {
+	    background: var(--cyan);
+	    border-color: rgba(255, 255, 255, 0.9);
+	}
+	
+	input[type="checkbox"]:checked::after {
+	    content: "";
+	    position: absolute;
+	    left: 6px;
+	    top: 2px;
+	    width: 5px;
+	    height: 10px;
+	    border: solid var(--text);
+	    border-width: 0 2px 2px 0;
+	    transform: rotate(45deg);
+	}
+	
+      @media (max-width: 600px) {
+            .index {
+                width: calc(100% - 24px);
+                margin: 35px auto;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<main class="index">
+
+  <header class="hero">
+        <!-- an awesome avatar -->
+        <div class="avatar">🦥</div>
+
+        <div>
+            <h1>1gamingsloth</h1>
+            <p class="subtitle"> human · Emacs user</p>
+        </div>
+    </header>
+
+    <nav aria-label="Main navigation links">
+        <a href="#">about me</a>
+        <a href="https://github.com/1gamingsloth">github</a>
+	<a href="https://codeberg.org/gamingsloth">codeberg</a>
+    </nav>
+
+
+    <section class="card" id="about">
+        <h2>About me:</h2>
+
+        <p>
+            Hello there! I am 1gamingsloth, a hobbyist programmer with an interest for all things Star Wars. On my spare time I mostly write bad packages for Emacs.
+        </p>
+
+        <p>
+            <!-- more text maybe -->
+        </p>
+    </section>
+
+
+    <section class="card" id="projects">
+        <h2>Projects:</h2>
+
+        <div class="projects">
+            <a class="project" href="https://github.com/1gamingsloth/paperbox">
+                <strong>paperbox</strong>
+                <small>A monospace beamer theme</small>
+            </a>
+
+            <a class="project" href="#">
+                <strong>something else</strong>
+                <small>???</small>
+            </a>
+	    <!-- more projects can be added here -->
+        </div>
+    </section>
+
+    <footer>
+        &copy 1gamingsloth 2026
+    </footer>
+
+</main>
+
+</body>
+</html>
